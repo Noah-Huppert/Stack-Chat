@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="android:Theme.Material.Light">
+        <item name="android:textColorPrimary">@color/primary_light</item><!-- Action Bar Text Color -->
+        <item name="android:colorPrimary">@color/primary</item><!-- Action Bar Background Color -->
+        <item name="android:windowBackground">@color/common_white</item><!-- Main Window Background Color -->
+        <item name="android:colorPrimaryDark">@color/primary_dark</item><!-- Notification Bar Color -->
+    </style>
+</resources>

@@ -5,21 +5,16 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-
+/**
+ * Main android activity
+ */
 public class MainActivity extends Activity {
 
-    /*
-    Planning to use the following external libs
-        OkHttp - Http Client
-            http://square.github.io/okhttp/
-        Picasso - Image Loader
-            http://square.github.io/picasso/
-        Otto - Event Bus
-            http://square.github.io/otto/
-        Spoon - Test Suite Manager
-            http://square.github.io/spoon/
+    /**
+     * Android lifetime method
+     * On startup, runs once
+     * @param savedInstanceState Saved state from previous life cycle
      */
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +22,11 @@ public class MainActivity extends Activity {
     }
 
 
+    /**
+     * Inflates option menu
+     * @param menu The menu to inflate
+     * @return ?
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -34,6 +34,11 @@ public class MainActivity extends Activity {
         return true;
     }
 
+    /**
+     * On menu item click
+     * @param item Item that is clicked
+     * @return ?
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will

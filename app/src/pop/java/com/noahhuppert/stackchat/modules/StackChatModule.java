@@ -19,7 +19,9 @@ import dagger.Provides;
 @Module(
         overrides = true,
         includes = BaseStackChatModule.class,
-        injects = MainActivity.class
+        injects = {
+                NotificationController.class
+        }
 
 )
 public class StackChatModule {

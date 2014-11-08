@@ -17,7 +17,9 @@ import dagger.Provides;
  * Base StackChat module for Dagger
  * Provides all non flavor specific injections
  */
-@Module
+@Module(
+        complete = false
+)
 public class BaseStackChatModule {
 
 }

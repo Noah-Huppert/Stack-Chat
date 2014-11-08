@@ -38,7 +38,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
 
-        objectGraph = ObjectGraph.create(new BaseStackChatModule());
+        objectGraph = ObjectGraph.create(new StackChatModule());
 
         notificationController = objectGraph.get(NotificationController.class);
 

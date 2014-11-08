@@ -6,7 +6,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.noahhuppert.stackchat.controllers.NotificationController;
+import com.noahhuppert.stackchat.controllers.PopNotificationController;
 import com.noahhuppert.stackchat.models.ChatMessage;
+import com.noahhuppert.stackchat.modules.BaseStackChatModule;
 import com.noahhuppert.stackchat.modules.StackChatModule;
 
 import javax.inject.Inject;
@@ -20,10 +22,10 @@ public class MainActivity extends Activity {
     /**
      * Main ObjectGraph for Dagger
      */
-    private ObjectGraph objectGraph = ObjectGraph.create(new StackChatModule());
+    private ObjectGraph objectGraph;
 
     @Inject
-    private NotificationController notificationController;
+    public NotificationController notificationController;
 
     /**
      * Android lifetime method
@@ -35,7 +37,12 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        notificationController.showMessage(new ChatMessage(0, "HUD!", 0, 0), this);
+
+        objectGraph = ObjectGraph.create(new BaseStackChatModule());
+
+        notificationController = objectGraph.get(NotificationController.class);
+
+        notificationController.showMessage(new ChatMessage(0, "HUD! Injected!", 0, 0), this);
     }
 
 

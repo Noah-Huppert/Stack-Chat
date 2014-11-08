@@ -4,6 +4,9 @@ package com.noahhuppert.stackchat.modules;
  * Created by Noah Huppert on 11/7/2014.
  */
 
+import android.util.Log;
+
+import com.noahhuppert.stackchat.MainActivity;
 import com.noahhuppert.stackchat.controllers.NotificationController;
 import com.noahhuppert.stackchat.controllers.PopNotificationController;
 
@@ -15,7 +18,9 @@ import dagger.Provides;
  */
 @Module(
         overrides = true,
-        addsTo = BaseStackChatModule.class
+        includes = BaseStackChatModule.class,
+        injects = MainActivity.class
+
 )
 public class StackChatModule {
     /**

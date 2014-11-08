@@ -5,10 +5,25 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.noahhuppert.stackchat.controllers.NotificationController;
+import com.noahhuppert.stackchat.models.ChatMessage;
+import com.noahhuppert.stackchat.modules.StackChatModule;
+
+import javax.inject.Inject;
+
+import dagger.ObjectGraph;
+
 /**
  * Main android activity
  */
 public class MainActivity extends Activity {
+    /**
+     * Main ObjectGraph for Dagger
+     */
+    private ObjectGraph objectGraph = ObjectGraph.create(new StackChatModule());
+
+    @Inject
+    private NotificationController notificationController;
 
     /**
      * Android lifetime method
@@ -19,6 +34,8 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        notificationController.showMessage(new ChatMessage(0, "HUD!", 0, 0), this);
     }
 
 

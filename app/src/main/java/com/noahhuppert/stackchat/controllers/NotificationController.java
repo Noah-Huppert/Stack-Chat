@@ -6,19 +6,14 @@ package com.noahhuppert.stackchat.controllers;
 
 import android.content.Context;
 
+import com.noahhuppert.stackchat.models.ChatMessage;
+
 import javax.inject.Singleton;
 
 /**
  * Class that will display and manage notifications
  */
 @Singleton
-public class NotificationController {
-    private Context context;
-
-    public NotificationController(Context context){
-        this.context = context;
-    }
-    public void show(String message){
-
-    };
+public abstract class NotificationController {
+    public abstract void showMessage(ChatMessage chatMessage, Context context);
 }

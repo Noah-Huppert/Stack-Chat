@@ -27,7 +27,7 @@ android {
          *          - Lollipop
          */
         pop {
-            packageName "com.noahhuppert.stackchat.pop"
+            packageName "com.noahhuppert.stackchat"
             versionName VERSION_NAME + "-pop"
             minSdkVersion 21
             targetSdkVersion 21
@@ -40,7 +40,7 @@ android {
          *          - KitKat
          */
         jellykit {
-            packageName "com.noahhuppert.stackchat.jellykit"
+            packageName "com.noahhuppert.stackchat"
             versionName VERSION_NAME + "-jellykit"
             minSdkVersion 16
             targetSdkVersion 19

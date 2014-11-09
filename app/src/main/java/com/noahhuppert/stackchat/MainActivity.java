@@ -24,7 +24,6 @@ public class MainActivity extends Activity {
      */
     private ObjectGraph objectGraph;
 
-    @Inject
     public NotificationController notificationController;
 
     /**

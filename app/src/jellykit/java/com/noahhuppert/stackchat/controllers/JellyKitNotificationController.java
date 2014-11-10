@@ -14,7 +14,7 @@ import com.noahhuppert.stackchat.models.Message;
 /**
  * Created by Noah Huppert on 11/8/2014.
  */
-public class PopNotificationController extends NotificationController {
+public class JellyKitNotificationController extends NotificationController {
     public int showMessage(Message message, Context context){
         int notificationId = 0;
 
@@ -22,7 +22,6 @@ public class PopNotificationController extends NotificationController {
 
         builder.setContentTitle("New message");
         builder.setContentText(message.getContent());
-        builder.setCategory(Notification.CATEGORY_MESSAGE);
         builder.setSmallIcon(R.drawable.ic_launcher);
         builder.setPriority(Notification.PRIORITY_HIGH);
         builder.setVibrate(new long[]{Notification.DEFAULT_VIBRATE});

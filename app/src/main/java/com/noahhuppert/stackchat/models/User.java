@@ -6,9 +6,27 @@ package com.noahhuppert.stackchat.models;
 
 /**
  * A StackOverflow chat user
- * User Id
- * Display name
- * Avatar Url
+ * Users are retrieved via the following Json format
+ *      {
+ *          "id": 0,
+ *          "name": "Noah-Huppert",
+ *          "email_hash": "!/Content/Img/feed-icon32.png",
+ *          "reputation": 549,
+ *          "is_moderator": false,
+ *          "is_owner": null,
+ *          "last_post": null,
+ *          "last_seen": null
+ *      }
+ *
+ * Via the following Url
+ *      POST http://chat.stackoverflow.com/user/info
+ *          Headers
+ *              roomId
+ *
+ * The following parameters will be stored
+ *      User Id
+ *      Display name
+ *      Avatar Url
  */
 public class User {
     /**

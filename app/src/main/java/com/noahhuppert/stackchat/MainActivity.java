@@ -2,16 +2,16 @@ package com.noahhuppert.stackchat;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.noahhuppert.stackchat.controllers.NotificationController;
-import com.noahhuppert.stackchat.controllers.PopNotificationController;
-import com.noahhuppert.stackchat.models.ChatMessage;
+import com.noahhuppert.stackchat.models.Room;
 import com.noahhuppert.stackchat.modules.BaseStackChatModule;
 import com.noahhuppert.stackchat.modules.StackChatModule;
-
-import javax.inject.Inject;
+import com.noahhuppert.stackchat.tasks.GetMessagesTask;
+import com.noahhuppert.stackchat.tasks.UpdateRoomMessagesTask;
 
 import dagger.ObjectGraph;
 
@@ -20,9 +20,14 @@ import dagger.ObjectGraph;
  */
 public class MainActivity extends Activity {
     /**
+     * Log Tag
+     */
+    public static final String LOG_TAG = "Stack Chat Log";
+
+    /**
      * Main ObjectGraph for Dagger
      */
-    private ObjectGraph objectGraph;
+    public static ObjectGraph objectGraph = ObjectGraph.create(new BaseStackChatModule(), new StackChatModule());//Create Dagger ObjectGraph
 
     public NotificationController notificationController;
 
@@ -36,12 +41,14 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        objectGraph = ObjectGraph.create(new StackChatModule());
-
+        /* Inject Dagger Dependencies */
         notificationController = objectGraph.get(NotificationController.class);
 
-        notificationController.showMessage(new ChatMessage(0, "HUD! Injected!", 0, 0), this);
+        Room room15 = new Room(15);
+
+        Log.w(LOG_TAG, "Getting messages");
+
+        new UpdateRoomMessagesTask().execute(room15);
     }
 
 

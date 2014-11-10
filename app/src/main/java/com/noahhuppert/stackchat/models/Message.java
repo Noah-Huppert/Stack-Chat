@@ -19,6 +19,12 @@ package com.noahhuppert.stackchat.models;
  *          "room_name":"Android",
  *          "message_id":19847812
  *      }
+ * Via this Url
+ *      POST http://chat.stackoverflow.com/chats/15/events
+ *          Headers
+ *              since: 0
+ *              mode: Messages
+ *              msgCount: 1000
  *
  * Model will save the following parameters
  *      id
@@ -26,7 +32,7 @@ package com.noahhuppert.stackchat.models;
  *      timeStamp
  *      userId
  */
-public class ChatMessage {
+public class Message {
     /**
      * Message Id
      */
@@ -49,12 +55,12 @@ public class ChatMessage {
 
     /**
      * Creates a new ChatMessage
-     * @param id {@link com.noahhuppert.stackchat.models.ChatMessage#id}
-     * @param content {@link com.noahhuppert.stackchat.models.ChatMessage#content}
-     * @param timeStamp {@link com.noahhuppert.stackchat.models.ChatMessage#timeStamp}
-     * @param userId {@link com.noahhuppert.stackchat.models.ChatMessage#userId}
+     * @param id {@link Message#id}
+     * @param content {@link Message#content}
+     * @param timeStamp {@link Message#timeStamp}
+     * @param userId {@link Message#userId}
      */
-    public ChatMessage(int id, String content, int timeStamp, int userId){
+    public Message(int id, String content, int timeStamp, int userId){
         this.id = id;
         this.content = content;
         this.timeStamp = timeStamp;
@@ -63,32 +69,32 @@ public class ChatMessage {
 
     /* Getters */
     /**
-     * Gets the {@link com.noahhuppert.stackchat.models.ChatMessage#id}
-     * @return {@link com.noahhuppert.stackchat.models.ChatMessage#id}
+     * Gets the {@link Message#id}
+     * @return {@link Message#id}
      */
     public int getId() {
         return id;
     }
 
     /**
-     * Gets the {@link com.noahhuppert.stackchat.models.ChatMessage#content}
-     * @return {@link com.noahhuppert.stackchat.models.ChatMessage#content}
+     * Gets the {@link Message#content}
+     * @return {@link Message#content}
      */
     public String getContent() {
         return content;
     }
 
     /**
-     * Gets the {@link com.noahhuppert.stackchat.models.ChatMessage#timeStamp}
-     * @return {@link com.noahhuppert.stackchat.models.ChatMessage#timeStamp}
+     * Gets the {@link Message#timeStamp}
+     * @return {@link Message#timeStamp}
      */
     public int getTimeStamp() {
         return timeStamp;
     }
 
     /**
-     * Gets the {@link com.noahhuppert.stackchat.models.ChatMessage#userId}
-     * @return {@link com.noahhuppert.stackchat.models.ChatMessage#userId}
+     * Gets the {@link Message#userId}
+     * @return {@link Message#userId}
      */
     public int getUserId() {
         return userId;
@@ -96,32 +102,32 @@ public class ChatMessage {
 
     /* Setters */
     /**
-     * Sets the {@link com.noahhuppert.stackchat.models.ChatMessage#id}
-     * @param id {@link com.noahhuppert.stackchat.models.ChatMessage#id}
+     * Sets the {@link Message#id}
+     * @param id {@link Message#id}
      */
     public void setId(int id) {
         this.id = id;
     }
 
     /**
-     * Sets the {@link com.noahhuppert.stackchat.models.ChatMessage#content}
-     * @param content {@link com.noahhuppert.stackchat.models.ChatMessage#content}
+     * Sets the {@link Message#content}
+     * @param content {@link Message#content}
      */
     public void setContent(String content) {
         this.content = content;
     }
 
     /**
-     * Sets the {@link com.noahhuppert.stackchat.models.ChatMessage#timeStamp}
-     * @param timeStamp {@link com.noahhuppert.stackchat.models.ChatMessage#timeStamp}
+     * Sets the {@link Message#timeStamp}
+     * @param timeStamp {@link Message#timeStamp}
      */
     public void setTimeStamp(int timeStamp) {
         this.timeStamp = timeStamp;
     }
 
     /**
-     * Sets the {@link com.noahhuppert.stackchat.models.ChatMessage#userId}
-     * @param userId {@link com.noahhuppert.stackchat.models.ChatMessage#userId}
+     * Sets the {@link Message#userId}
+     * @param userId {@link Message#userId}
      */
     public void setUserId(int userId) {
         this.userId = userId;

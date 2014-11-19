@@ -1,16 +1,17 @@
 package com.noahhuppert.stackchat;
 
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.noahhuppert.stackchat.controllers.NotificationController;
+import com.noahhuppert.stackchat.fragments.RoomFragment;
 import com.noahhuppert.stackchat.models.Room;
 import com.noahhuppert.stackchat.modules.BaseStackChatModule;
 import com.noahhuppert.stackchat.modules.StackChatModule;
-import com.noahhuppert.stackchat.tasks.GetMessagesTask;
 import com.noahhuppert.stackchat.tasks.UpdateRoomMessagesTask;
 
 import dagger.ObjectGraph;
@@ -19,16 +20,23 @@ import dagger.ObjectGraph;
  * Main android activity
  */
 public class MainActivity extends Activity {
+    //Constants
     /**
      * Log Tag
      */
     public static final String LOG_TAG = "Stack Chat Log";
 
+    //Android
+    public FragmentManager fragmentManager;
+
+    //Dagger
     /**
      * Main ObjectGraph for Dagger
      */
-    public static ObjectGraph objectGraph = ObjectGraph.create(new BaseStackChatModule(), new StackChatModule());//Create Dagger ObjectGraph
-
+    public static ObjectGraph objectGraph = ObjectGraph.create(new BaseStackChatModule(), new StackChatModule());
+    /**
+     * Android notification manager
+     */
     public NotificationController notificationController;
 
     /**
@@ -41,14 +49,18 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /* Inject Dagger Dependencies */
+        //Android vars
+        fragmentManager = getFragmentManager();
+
+        //Dagger
         notificationController = objectGraph.get(NotificationController.class);
 
-        Room room15 = new Room(15);
+        //Set fragment
+        RoomFragment roomFragment = new RoomFragment();
 
-        Log.w(LOG_TAG, "Getting messages");
-
-        new UpdateRoomMessagesTask().execute(room15);
+        fragmentManager.beginTransaction()
+                .add(R.id.mainFragment, roomFragment)
+                .commit();
     }
 
 

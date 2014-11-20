@@ -52,6 +52,4 @@ public class MessagesRecyclerViewAdapter extends RecyclerView.Adapter<MessagesRe
     public int getItemCount(){
         return messages.size();
     }
-
-    //TODO Make recyclerview update correctly when notifyDataSetChange
 }

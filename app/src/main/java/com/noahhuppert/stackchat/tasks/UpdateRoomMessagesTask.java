@@ -90,7 +90,9 @@ public class UpdateRoomMessagesTask extends AsyncTask<Room, Void, ArrayList<Mess
 
         room.setMessages(messages);
 
-        Log.w(MainActivity.LOG_TAG, "Updated messages, " + messages.size());
+        adapter.messages = room.getMessages();
+
+        Log.w(MainActivity.LOG_TAG, "Updated messages, " + room.getMessages().size() + " " + room.getMessages().get(room.getMessages().size() - 1).getContent());
 
         adapter.notifyDataSetChanged();
     }

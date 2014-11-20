@@ -2,6 +2,7 @@ package com.noahhuppert.stackchat;
 
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,14 +16,16 @@ import java.util.ArrayList;
  * Created by Noah Huppert on 11/18/2014.
  */
 public class MessagesRecyclerViewAdapter extends RecyclerView.Adapter<MessagesRecyclerViewAdapter.ViewHolder>{
-    private ArrayList<Message> messages;
+    public ArrayList<Message> messages;
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
-        public TextView textView;
+        public TextView messageContent;
+        public TextView messageAuthor;
 
-        public ViewHolder(TextView view){
-            super(view);
-            textView = view;
+        public ViewHolder(View itemView){
+            super(itemView);
+            messageContent = (TextView) itemView.findViewById(R.id.messageContent);
+            messageAuthor = (TextView) itemView.findViewById(R.id.messageAuthor);
         }
     }
 
@@ -31,17 +34,18 @@ public class MessagesRecyclerViewAdapter extends RecyclerView.Adapter<MessagesRe
     }
 
     @Override
-    public MessagesRecyclerViewAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType){
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.messages_fragment, viewGroup, false);
+    public MessagesRecyclerViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.chat_message_view, parent, false);
 
-        ViewHolder viewholder = new ViewHolder((TextView) view.findViewById(R.id.messageContent));
+        ViewHolder viewholder = new ViewHolder(view);//(TextView) view.findViewById(R.id.messageContent));
 
         return viewholder;
     }
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int position){
-        viewHolder.textView.setText(messages.get(position).getContent());
+        viewHolder.messageContent.setText(messages.get(position).getContent());
+        viewHolder.messageAuthor.setText("User Id: " + messages.get(position).getUserId());
     }
 
     @Override

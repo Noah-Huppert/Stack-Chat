@@ -101,6 +101,6 @@ public class Room {
     }
 
     public void addMessage(Message message){
-
+        getMessages().add(message);
     }
 }

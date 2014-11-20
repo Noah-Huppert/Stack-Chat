@@ -25,27 +25,18 @@ public class RoomFragment extends Fragment {
     RecyclerView messagesRecyclerView;
     RecyclerView.LayoutManager messagesLayoutManager;
 
-    public RoomFragment(){
-        super();
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState){
-        super.onCreate(savedInstanceState);
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        super.onCreateView(inflater, container, savedInstanceState);
 
-        return inflater.inflate(R.layout.messages_fragment, container, false);
-    }
+        View view = inflater.inflate(R.layout.messages_fragment, container, false);
 
-    @Override
-    public void onViewCreated(View view, Bundle savedInstanceState){
         Room room15 = new Room(15);
 
-        messagesRecyclerView = (RecyclerView) getView().findViewById(R.id.messages_recycler_view);
+        /*room15.addMessage(new Message(0, "message1", 10, 1));
+        room15.addMessage(new Message(1, "message2", 10, 1));
+        room15.addMessage(new Message(2, "message3", 10, 1));*/
+
+        messagesRecyclerView = (RecyclerView) view.findViewById(R.id.messages_recycler_view);
         messagesRecyclerView.setHasFixedSize(true);
 
         messagesLayoutManager = new LinearLayoutManager(getActivity());
@@ -55,5 +46,7 @@ public class RoomFragment extends Fragment {
         messagesRecyclerView.setAdapter(messagesRecyclerViewAdapter);
 
         new UpdateRoomMessagesTask().setArgs(room15, messagesRecyclerViewAdapter).execute();
+
+        return view;
     }
 }

@@ -59,8 +59,26 @@ public class MainActivity extends Activity {
         RoomFragment roomFragment = new RoomFragment();
 
         fragmentManager.beginTransaction()
-                .add(R.id.mainFragment, roomFragment)
-                .commit();
+                .replace(R.id.mainFragment, roomFragment)
+                .addToBackStack(null)
+                .commitAllowingStateLoss();
+
+        /*
+        Room room15 = new Room(15);
+
+        room15.addMessage(new Message(0, "message1", 10, 1));
+        room15.addMessage(new Message(1, "message2", 10, 1));
+        room15.addMessage(new Message(2, "message3", 10, 1));
+
+        messagesRecyclerView = (RecyclerView) getView().findViewById(R.id.messages_recycler_view);
+        messagesRecyclerView.setHasFixedSize(true);
+
+        messagesLayoutManager = new LinearLayoutManager(getActivity());
+        messagesRecyclerView.setLayoutManager(messagesLayoutManager);
+
+        MessagesRecyclerViewAdapter messagesRecyclerViewAdapter = new MessagesRecyclerViewAdapter(room15.getMessages());
+        messagesRecyclerView.setAdapter(messagesRecyclerViewAdapter);
+         */
     }
 
 

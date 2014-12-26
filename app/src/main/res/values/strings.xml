@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">StackChat</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Login Fragment -->
+    <string name="login_fragment_header_text">Log In to StackExchange</string>
+    <string name="login_fragment_user_email_hint">Email</string>
+    <string name="login_fragment_user_password_hint">Password</string>
+    <string name="login_fragment_save_credentials_text">Save Credentials</string>
+    <string name="login_fragment_save_credentials_warning">Information will be encrypted, however there is still a security risk</string>
+</resources>

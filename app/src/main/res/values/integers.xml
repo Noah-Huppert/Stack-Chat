@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- Login Fragment -->
+    <integer name="login_fragment_login_fields_ems">10</integer>
+    
+</resources>

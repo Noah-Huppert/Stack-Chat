@@ -1,0 +1,15 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- Login Fragment -->
+    <dimen name="login_fragment_se_logo_size">120dp</dimen>
+    <dimen name="login_fragment_header_text_size">20dp</dimen>
+    <!--<dimen name="login_fragment_se_logo_margin_bottom">100dp</dimen>
+    <dimen name="login_fragment_header_text_margin_top">20dp</dimen>
+    <dimen name="login_fragment_password_field_margin_bottom">150dp</dimen>
+    <dimen name="login_fragment_username_field_margin_bottom">20dp</dimen>
+    <dimen name="login_fragment_save_credentials_margin_top">60dp</dimen>
+    <dimen name="login_fragment_save_credentials_warning_margin_top">40dp</dimen>-->
+</resources>

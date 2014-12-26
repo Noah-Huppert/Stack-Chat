@@ -3,6 +3,7 @@ package com.noahhuppert.stackchat;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
@@ -23,6 +24,12 @@ public class MainActivity extends ActionBarActivity {
 
         FrameLayout mainFragment = (FrameLayout) findViewById(R.id.mainFragment);
         getFragmentManager().beginTransaction().replace(R.id.mainFragment, new LoginFragment()).addToBackStack(null).commit();
+
+        //Set Toolbar as actionbar
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        if(toolbar != null) {
+            setSupportActionBar(toolbar);
+        }
     }
 
 

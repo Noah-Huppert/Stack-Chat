@@ -1,4 +1,4 @@
-package com.noahhuppert.stackchat;
+package com.noahhuppert.stackchat.Activities;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
@@ -10,11 +10,13 @@ import android.view.MenuItem;
 import android.widget.FrameLayout;
 
 import com.crashlytics.android.Crashlytics;
+import com.noahhuppert.stackchat.BuildConfig;
 import com.noahhuppert.stackchat.Fragments.LoginFragment;
 import com.noahhuppert.stackchat.Fragments.SelectStackNetworkFragment;
 import com.noahhuppert.stackchat.Fragments.StackNetworkRoomsFragment;
 import com.noahhuppert.stackchat.Interfaces.FragmentToActivityBus;
 import com.noahhuppert.stackchat.Models.StackNetwork;
+import com.noahhuppert.stackchat.R;
 
 import java.util.ArrayList;
 
@@ -51,7 +53,7 @@ public class MainActivity extends ActionBarActivity implements FragmentToActivit
         //Set data
         stackNetworks = new ArrayList<StackNetwork>();
         stackNetworks.add(new StackNetwork("Stack Exchange", "http://chat.stackexchange.com/", R.drawable.se_icon));
-        stackNetworks.add(new StackNetwork("Stack Overflow", "http://chat.stackoverflow.com/", R.drawable.ic_launcher));
+        stackNetworks.add(new StackNetwork("Stack Overflow", "http://chat.stackoverflow.com/", R.drawable.so_icon));
     }
 
 

@@ -15,18 +15,18 @@ import com.noahhuppert.stackchat.R;
 /**
  * Created by Noah Huppert on 12/26/2014.
  */
-public class StackNetworkRoomsFragment extends Fragment {
+public class StackNetworkRoomsFragment extends BaseFragment {
     public static final String BUNDLE_SELECTED_NETWORK_KEY = "BUNDLE_SELECTED_NETWORK_KEY";
-    private FragmentToActivityBus fragmentToActivityBus;
-
     private int selectedNetworkKey;
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public StackNetworkRoomsFragment(){
+        fragmentLayout = R.layout.stack_network_rooms_fragment;
+    }
 
-        // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.stack_network_rooms_fragment, container, false);
+    @Override
+    public void runOnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState, View rootView) {
+        super.runOnCreateView(inflater, container, savedInstanceState, rootView);
+
         TextView stackNetworkName = (TextView) rootView.findViewById(R.id.stack_network_rooms_network_name);
 
         selectedNetworkKey = getArguments().getInt(BUNDLE_SELECTED_NETWORK_KEY);
@@ -35,13 +35,5 @@ public class StackNetworkRoomsFragment extends Fragment {
 
         //TODO Parse StackNetwork url for rooms
         //TODO Create real layout with RecyclerView of rooms
-
-        return rootView;
-    }
-
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        fragmentToActivityBus = (FragmentToActivityBus) InterfaceHelper.attachToActivity(FragmentToActivityBus.class, activity);
     }
 }

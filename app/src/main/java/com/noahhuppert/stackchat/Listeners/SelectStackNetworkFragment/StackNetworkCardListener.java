@@ -1,13 +1,11 @@
 package com.noahhuppert.stackchat.Listeners.SelectStackNetworkFragment;
 
 import android.os.Bundle;
-import android.util.Log;
 
 import com.noahhuppert.stackchat.Fragments.StackNetworkRoomsFragment;
 import com.noahhuppert.stackchat.Interfaces.FragmentToActivityBus;
 import com.noahhuppert.stackchat.Interfaces.ViewHolderClickListener;
-import com.noahhuppert.stackchat.Listeners.StackNetworkViewholderListener;
-import com.noahhuppert.stackchat.MainActivity;
+import com.noahhuppert.stackchat.Activities.MainActivity;
 import com.noahhuppert.stackchat.Models.StackNetwork;
 
 import java.util.ArrayList;

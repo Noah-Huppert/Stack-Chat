@@ -19,15 +19,15 @@ import com.noahhuppert.stackchat.R;
 /**
  * Created by Noah Huppert on 12/25/2014.
  */
-public class LoginFragment extends Fragment {
-    private FragmentToActivityBus fragmentToActivityBus;
+public class LoginFragment extends BaseFragment {
+
+    public LoginFragment(){
+        fragmentLayout = R.layout.login_fragment;
+    }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-
-        // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.login_fragment, container, false);
+    public void runOnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState, View rootView) {
+        super.runOnCreateView(inflater, container, savedInstanceState, rootView);
 
         //Show Save Credentials warning
         CheckBox saveCredentialsCheckbox = (CheckBox) rootView.findViewById(R.id.login_fragment_save_credentials);
@@ -38,14 +38,5 @@ public class LoginFragment extends Fragment {
         //Login Button
         Button loginButton = (Button) rootView.findViewById(R.id.login_fragment_login_button);
         loginButton.setOnClickListener(new LoginButtonListener(fragmentToActivityBus));
-
-        return rootView;
-    }
-
-    @Override
-    public void onAttach(Activity activity){
-        super.onAttach(activity);
-
-        fragmentToActivityBus = (FragmentToActivityBus) InterfaceHelper.attachToActivity(FragmentToActivityBus.class, activity);
     }
 }

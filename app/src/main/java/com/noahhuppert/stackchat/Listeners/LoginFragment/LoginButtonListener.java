@@ -3,7 +3,7 @@ package com.noahhuppert.stackchat.Listeners.LoginFragment;
 import android.view.View;
 
 import com.noahhuppert.stackchat.Interfaces.FragmentToActivityBus;
-import com.noahhuppert.stackchat.MainActivity;
+import com.noahhuppert.stackchat.Activities.MainActivity;
 
 /**
  * Created by Noah Huppert on 12/26/2014.

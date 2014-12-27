@@ -24,15 +24,15 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SelectStackNetworkFragment extends Fragment {
-    private FragmentToActivityBus fragmentToActivityBus;
+public class SelectStackNetworkFragment extends BaseFragment {
+
+    public SelectStackNetworkFragment(){
+        fragmentLayout = R.layout.select_stack_network_fragment;
+    }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-
-        // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.select_stack_network_fragment, container, false);
+    public void runOnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState, View rootView) {
+        super.runOnCreateView(inflater, container, savedInstanceState, rootView);
 
         RecyclerView networksList = (RecyclerView) rootView.findViewById(R.id.select_stack_network_fragment_list);
 
@@ -43,13 +43,5 @@ public class SelectStackNetworkFragment extends Fragment {
         networksList.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         networksList.setAdapter(stackNetworkListAdapter);
-
-        return rootView;
-    }
-
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        fragmentToActivityBus = (FragmentToActivityBus) InterfaceHelper.attachToActivity(FragmentToActivityBus.class, activity);
     }
 }

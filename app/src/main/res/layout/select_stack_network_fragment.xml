@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/select_stack_network_fragment_helper_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/stack_network_fragment_helper_text_margin_bottom"
+        android:gravity="center"
+        android:textSize="@dimen/stack_network_fragment_helper_text_size"
+        android:textStyle="bold"
+        android:text="@string/stack_network_fragment_helper_text"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/select_stack_network_fragment_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/select_stack_network_fragment_helper_text"
+        android:scrollbars="vertical"/>
+
+</RelativeLayout>

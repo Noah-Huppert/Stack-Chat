@@ -6,10 +6,13 @@
     <!-- Login Fragment -->
     <dimen name="login_fragment_se_logo_size">120dp</dimen>
     <dimen name="login_fragment_header_text_size">20dp</dimen>
-    <!--<dimen name="login_fragment_se_logo_margin_bottom">100dp</dimen>
-    <dimen name="login_fragment_header_text_margin_top">20dp</dimen>
-    <dimen name="login_fragment_password_field_margin_bottom">150dp</dimen>
-    <dimen name="login_fragment_username_field_margin_bottom">20dp</dimen>
-    <dimen name="login_fragment_save_credentials_margin_top">60dp</dimen>
-    <dimen name="login_fragment_save_credentials_warning_margin_top">40dp</dimen>-->
+
+    <!-- Select Stack Network Card -->
+    <dimen name="stack_network_card_icon_size">60dp</dimen>
+    <dimen name="stack_network_card_icon_padding">10dp</dimen>
+    <dimen name="stack_network_card_title_size">20dp</dimen>
+
+    <!-- Select Stack Network Fragment -->
+    <dimen name="stack_network_fragment_helper_text_size">20dp</dimen>
+    <dimen name="stack_network_fragment_helper_text_margin_bottom">20dp</dimen>
 </resources>

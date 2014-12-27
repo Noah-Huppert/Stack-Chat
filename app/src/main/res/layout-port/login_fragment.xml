@@ -2,7 +2,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
-    <!-- Header -->
+    <!-- Image Header -->
+    <ImageView
+        android:id="@+id/login_fragment_se_logo"
+        android:layout_width="@dimen/login_fragment_se_logo_size"
+        android:layout_height="@dimen/login_fragment_se_logo_size"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/se_icon"/>
+
     <TextView
         android:id="@+id/login_fragment_header_text"
         android:layout_width="wrap_content"

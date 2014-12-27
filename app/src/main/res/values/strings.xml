@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">StackChat</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="app_name">Stack Chat</string>
     <string name="action_settings">Settings</string>
 
     <!-- Login Fragment -->
@@ -12,4 +11,8 @@
     <string name="login_fragment_save_credentials_text">Save Credentials</string>
     <string name="login_fragment_save_credentials_warning">Information will be encrypted, however there is still a security risk</string>
     <string name="login_fragment_login_button_text">Login</string>
+
+    <!-- Stack Network Select Fragment -->
+    <string name="stack_network_fragment_helper_text">Select a Stack Network to view chatrooms for</string>
+
 </resources>

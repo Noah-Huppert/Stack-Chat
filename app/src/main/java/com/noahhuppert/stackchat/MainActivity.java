@@ -31,7 +31,12 @@ public class MainActivity extends ActionBarActivity implements FragmentToActivit
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Fabric.with(this, new Crashlytics());
+
+        //Only start Crashlytics if not in Debug mode
+        if(!BuildConfig.DEBUG) {
+            Fabric.with(this, new Crashlytics());
+        }
+
         setContentView(R.layout.activity_main);
 
         FrameLayout mainFragment = (FrameLayout) findViewById(R.id.mainFragment);

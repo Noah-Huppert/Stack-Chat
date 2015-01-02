@@ -3,7 +3,7 @@ package com.noahhuppert.stackchat.Tasks;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.noahhuppert.stackchat.Models.GetStackNetworkRoomsBundle;
+import com.noahhuppert.stackchat.Interfaces.GetStackNetworkRoomsInterface;
 import com.noahhuppert.stackchat.Models.StackNetwork;
 import com.noahhuppert.stackchat.Models.StackRoom;
 
@@ -18,30 +18,47 @@ import java.util.ArrayList;
 /**
  * Created by Noah Huppert on 1/1/2015.
  */
-public class GetStackNetworkRoomsTask extends AsyncTask<GetStackNetworkRoomsBundle, Void, ArrayList<StackRoom>> {
+public class GetStackNetworkRoomsTask extends AsyncTask<Integer, Void, ArrayList<StackRoom>> {
+    private GetStackNetworkRoomsInterface getStackNetworkRoomsInterface;
+    private StackNetwork stackNetwork;
+
+    public GetStackNetworkRoomsTask(GetStackNetworkRoomsInterface getStackNetworkRoomsInterface, StackNetwork stackNetwork){
+        this.getStackNetworkRoomsInterface = getStackNetworkRoomsInterface;
+        this.stackNetwork = stackNetwork;
+    }
+
     @Override
-    protected ArrayList<StackRoom> doInBackground(GetStackNetworkRoomsBundle... data) {
+    protected ArrayList<StackRoom> doInBackground(Integer... pages) {
+        ArrayList<StackRoom> stackRooms = new ArrayList<StackRoom>();
+
         try {
-            ArrayList<StackRoom> stackRooms = new ArrayList<StackRoom>();
+            for (int page : pages) {
+                Document document = Jsoup.connect(stackNetwork.getUrl() + "?tab=all&sort=active&page=" + page).get();
+                Elements roomCards = document.select(".roomcard");
 
-            Document document = Jsoup.connect(data[0].getStackNetwork().getUrl() + "?tab=all&sort=active&page=" + data[0].getPage()).get();
-            Elements roomsIndex = document.select(".roomcard");
+                for(Element roomCard : roomCards){
+                    String roomName = roomCard.select(".room-name").text();
 
-            for(Element element : roomsIndex){
-                String roomName = element.select(".room-name").text();
-                String roomIdString = element.id();
-                //TODO Figure out why element.id() is not returning the Id
-                //TODO Serialize a list of StackRooms from data
-                Log.d("GetStackNetworkRooms", roomIdString);
+                    String roomIdString = roomCard.select(".actions").select("a").get(1).attr("href").replace("/transcript/", "");
+                    int roomId = Integer.parseInt(roomIdString);
+
+                    String roomDescription = roomCard.select(".room-description").text();
+
+                    StackRoom stackRoom = new StackRoom(roomId, roomName, roomDescription);
+                    stackRooms.add(stackRoom);
+                }
             }
-            return null;
-        }catch (IOException e){
-            return null;
+        } catch(IOException e){
+
         }
+
+        return stackRooms;
     }
 
     @Override
     protected void onPostExecute(ArrayList<StackRoom> rooms) {
         super.onPostExecute(rooms);
+
+        getStackNetworkRoomsInterface.onRetrievedRooms(rooms);
     }
 }

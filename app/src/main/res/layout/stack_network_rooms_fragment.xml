@@ -3,8 +3,20 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/stack_network_rooms_network_name"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:id="@+id/stack_network_rooms_helper_text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/stack_network_rooms_fragment_helper_text_margin_bottom"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textSize="@dimen/stack_room_list_card_name_text_size"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/stack_network_rooms_fragment_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:scrollbars="vertical"
+        android:layout_below="@+id/stack_network_rooms_helper_text"/>
 
 </RelativeLayout>

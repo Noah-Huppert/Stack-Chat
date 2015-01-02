@@ -1,26 +1,23 @@
 package com.noahhuppert.stackchat.ViewHolders;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.noahhuppert.stackchat.Interfaces.ViewHolderClickListener;
-import com.noahhuppert.stackchat.Listeners.StackNetworkViewholderListener;
-import com.noahhuppert.stackchat.Models.StackNetwork;
 import com.noahhuppert.stackchat.R;
 
 /**
- * Created by Noah Huppert on 12/26/2014.
+ * Created by Noah Huppert on 1/2/2015.
  */
-public class StackNetworkViewHolder extends ClickableViewHolder {
+public class StackRoomViewHolder extends ClickableViewHolder {
     private TextView name;
-    private ImageView icon;
+    private TextView description;
 
-    public StackNetworkViewHolder(View view){
+    public StackRoomViewHolder(View view){
         super(view);
-        name = (TextView) view.findViewById(R.id.stack_network_card_name);
-        icon = (ImageView) view.findViewById(R.id.stack_network_card_icon);
+
+        this.name = (TextView) view.findViewById(R.id.stack_room_list_card_name);
+        this.description = (TextView) view.findViewById(R.id.stack_room_list_card_description);
     }
 
     /* Actions */
@@ -35,8 +32,8 @@ public class StackNetworkViewHolder extends ClickableViewHolder {
         return name;
     }
 
-    public ImageView getIcon() {
-        return icon;
+    public TextView getDescription() {
+        return description;
     }
 
     /* Setters */
@@ -44,7 +41,7 @@ public class StackNetworkViewHolder extends ClickableViewHolder {
         this.name = name;
     }
 
-    public void setIcon(ImageView icon) {
-        this.icon = icon;
+    public void setDescription(TextView description) {
+        this.description = description;
     }
 }

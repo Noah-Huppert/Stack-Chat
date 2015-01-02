@@ -44,7 +44,7 @@ public class StackNetworkListAdapter extends RecyclerView.Adapter<StackNetworkVi
 
     @Override
     public int getItemCount(){
-        return this.stackNetworks.size();
+        return getStackNetworks().size();
     }
 
     @Override

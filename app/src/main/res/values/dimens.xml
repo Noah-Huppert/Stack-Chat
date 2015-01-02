@@ -15,4 +15,14 @@
     <!-- Select Stack Network Fragment -->
     <dimen name="stack_network_fragment_helper_text_size">20dp</dimen>
     <dimen name="stack_network_fragment_helper_text_margin_bottom">20dp</dimen>
+
+    <!-- Stack Network Rooms Fragment -->
+    <dimen name="stack_network_rooms_fragment_helper_text_size">20dp</dimen>
+    <dimen name="stack_network_rooms_fragment_helper_text_margin_bottom">20dp</dimen>
+
+    <!-- Stack Room List Card -->
+    <dimen name="stack_room_list_card_height">85dp</dimen>
+    <dimen name="stack_room_list_card_padding">10dp</dimen>
+    <dimen name="stack_room_list_card_name_text_size">20dp</dimen>
+    <dimen name="stack_room_list_card_description_margin_top">2dp</dimen>
 </resources>

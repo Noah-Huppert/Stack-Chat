@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/stack_room_list_card_height"
+        android:padding="@dimen/stack_room_list_card_padding">
+
+        <TextView
+            android:id="@+id/stack_room_list_card_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="@dimen/stack_room_list_card_name_text_size"/>
+
+        <TextView
+            android:id="@+id/stack_room_list_card_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/stack_room_list_card_name"
+            android:layout_marginTop="@dimen/stack_room_list_card_description_margin_top"/>
+
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

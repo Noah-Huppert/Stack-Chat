@@ -38,5 +38,7 @@ public class LoginFragment extends BaseFragment {
         //Login Button
         Button loginButton = (Button) rootView.findViewById(R.id.login_fragment_login_button);
         loginButton.setOnClickListener(new LoginButtonListener(fragmentToActivityBus));
+
+        fragmentToActivityBus.setShowActionBarToggle(false);
     }
 }

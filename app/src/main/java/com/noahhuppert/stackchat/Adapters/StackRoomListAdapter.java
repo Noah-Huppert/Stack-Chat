@@ -15,54 +15,17 @@ import java.util.ArrayList;
 /**
  * Created by Noah Huppert on 1/2/2015.
  */
-public class StackRoomListAdapter extends RecyclerView.Adapter<StackRoomViewHolder> implements ViewHolderClickListener{
-    private ArrayList<StackRoom> stackRooms;
-    private ViewHolderClickListener viewHolderClickListener;
+public class StackRoomListAdapter extends ClickableRecyclerViewAdapter<StackRoom, StackRoomViewHolder>{
 
-    public StackRoomListAdapter(ArrayList<StackRoom> stackRooms){
-        this.stackRooms = stackRooms;
-    }
-
-    public void addOnClickListener(ViewHolderClickListener viewHolderClickListener){
-        this.viewHolderClickListener = viewHolderClickListener;
+    public StackRoomListAdapter(ArrayList<StackRoom> data){
+        super(data, R.layout.stack_room_list_card, StackRoomViewHolder.class);
     }
 
     @Override
-    public void onClick(int index){
-        if(viewHolderClickListener != null){
-            viewHolderClickListener.onClick(index);
-        }
-    }
-
-    @Override
-    public StackRoomViewHolder onCreateViewHolder(ViewGroup viewGroup, int index){
-        View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.stack_room_list_card, viewGroup, false);
-
-        return new StackRoomViewHolder(itemView);
-    }
-
-    @Override
-    public int getItemCount(){
-        return this.stackRooms.size();
-    }
-
-    @Override
-    public void onBindViewHolder(StackRoomViewHolder stackRoomViewHolder, int index){
-        StackRoom stackRoom = getStackRooms().get(index);
+    public void runOnBindViewHolder(StackRoomViewHolder stackRoomViewHolder, int index){
+        StackRoom stackRoom = getData().get(index);
 
         stackRoomViewHolder.getName().setText(stackRoom.getName());
         stackRoomViewHolder.getDescription().setText(stackRoom.getDescription());
-
-        stackRoomViewHolder.setupClickListener(index, this);
-    }
-
-    /* Getters */
-    public ArrayList<StackRoom> getStackRooms() {
-        return stackRooms;
-    }
-
-    /* Setters */
-    public void setStackRooms(ArrayList<StackRoom> stackRooms) {
-        this.stackRooms = stackRooms;
     }
 }

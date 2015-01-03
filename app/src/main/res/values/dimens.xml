@@ -3,9 +3,28 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
+    <!-- Navigation Drawer -->
+    <dimen name="navigation_drawer_width">240dp</dimen>
+    <dimen name="navigation_drawer_padding">20dp</dimen>
+    <dimen name="navigation_drawer_fragment_user_avatar_width">40dp</dimen>
+    <dimen name="navigation_drawer_fragment_user_avatar_height">40dp</dimen>
+    <dimen name="navigation_drawer_fragment_user_name_height">40dp</dimen>
+    <dimen name="navigation_drawer_fragment_user_name_size">18dp</dimen>
+    <dimen name="navigation_drawer_fragment_user_name_margin_left">16dp</dimen>
+    <dimen name="navigation_drawer_fragment_user_info_divider_size">1dp</dimen>
+    <dimen name="navigation_drawer_fragment_divider_line_margin_top">5dp</dimen>
+
+    <!-- Navigation Drawer Item Card -->
+    <dimen name="navigation_drawer_item_card_padding">10dp</dimen>
+    <dimen name="navigation_drawer_item_card_icon_width">30dp</dimen>
+    <dimen name="navigation_drawer_item_card_icon_height">30dp</dimen>
+    <dimen name="navigation_drawer_item_card_text_height">30dp</dimen>
+    <dimen name="navigation_drawer_item_card_text_margin_left">20dp</dimen>
+    <dimen name="navigation_drawer_item_card_text_size">16sp</dimen>
+
     <!-- Login Fragment -->
     <dimen name="login_fragment_se_logo_size">120dp</dimen>
-    <dimen name="login_fragment_header_text_size">20dp</dimen>
+    <dimen name="login_fragment_header_text_size">20sp</dimen>
 
     <!-- Select Stack Network Card -->
     <dimen name="stack_network_card_icon_size">60dp</dimen>
@@ -13,16 +32,16 @@
     <dimen name="stack_network_card_title_size">20dp</dimen>
 
     <!-- Select Stack Network Fragment -->
-    <dimen name="stack_network_fragment_helper_text_size">20dp</dimen>
+    <dimen name="stack_network_fragment_helper_text_size">20sp</dimen>
     <dimen name="stack_network_fragment_helper_text_margin_bottom">20dp</dimen>
 
     <!-- Stack Network Rooms Fragment -->
-    <dimen name="stack_network_rooms_fragment_helper_text_size">20dp</dimen>
+    <dimen name="stack_network_rooms_fragment_helper_text_size">20sp</dimen>
     <dimen name="stack_network_rooms_fragment_helper_text_margin_bottom">20dp</dimen>
 
     <!-- Stack Room List Card -->
     <dimen name="stack_room_list_card_height">85dp</dimen>
     <dimen name="stack_room_list_card_padding">10dp</dimen>
-    <dimen name="stack_room_list_card_name_text_size">20dp</dimen>
+    <dimen name="stack_room_list_card_name_text_size">20sp</dimen>
     <dimen name="stack_room_list_card_description_margin_top">2dp</dimen>
 </resources>

@@ -52,7 +52,7 @@ public class StackNetworkRoomsFragment extends BaseFragment implements GetStackN
         roomsList = (RecyclerView) rootView.findViewById(R.id.stack_network_rooms_fragment_list);
 
         stackRoomListAdapter = new StackRoomListAdapter(new ArrayList<StackRoom>());
-        stackRoomListAdapter.addOnClickListener(new StackRoomCardListener());
+        stackRoomListAdapter.setOnClickListener(new StackRoomCardListener());
 
         roomsList.setHasFixedSize(true);
         roomsList.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -62,7 +62,7 @@ public class StackNetworkRoomsFragment extends BaseFragment implements GetStackN
 
     @Override
     public void onRetrievedRooms(ArrayList<StackRoom> rooms) {
-        stackRoomListAdapter.setStackRooms(rooms);
+        stackRoomListAdapter.setData(rooms);
         stackRoomListAdapter.notifyDataSetChanged();
     }
 }

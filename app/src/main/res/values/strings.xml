@@ -4,6 +4,10 @@
     <string name="app_name">Stack Chat</string>
     <string name="action_settings">Settings</string>
 
+    <!-- Navigation Drawer -->
+    <string name="navigation_drawer_open_description">Open Drawer</string>
+    <string name="navigation_drawer_close_description">Close Drawer</string>
+
     <!-- Login Fragment -->
     <string name="login_fragment_header_text">Log In to StackExchange</string>
     <string name="login_fragment_user_email_hint">Email</string>

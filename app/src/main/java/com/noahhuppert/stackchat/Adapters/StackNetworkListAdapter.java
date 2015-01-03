@@ -16,54 +16,17 @@ import java.util.ArrayList;
 /**
  * Created by Noah Huppert on 12/26/2014.
  */
-public class StackNetworkListAdapter extends RecyclerView.Adapter<StackNetworkViewHolder> implements ViewHolderClickListener{
-    private ArrayList<StackNetwork> stackNetworks;
-    private ViewHolderClickListener viewHolderClickListener;
+public class StackNetworkListAdapter extends ClickableRecyclerViewAdapter<StackNetwork, StackNetworkViewHolder>{
 
-    public StackNetworkListAdapter(ArrayList<StackNetwork> stackNetworks){
-        this.stackNetworks = stackNetworks;
-    }
-
-    public void addOnClickListener(ViewHolderClickListener viewHolderClickListener){
-        this.viewHolderClickListener = viewHolderClickListener;
+    public StackNetworkListAdapter(ArrayList<StackNetwork> data) {
+        super(data, R.layout.stack_network_card, StackNetworkViewHolder.class);
     }
 
     @Override
-    public void onClick(int index){
-        if(viewHolderClickListener != null){
-            viewHolderClickListener.onClick(index);
-        }
-    }
-
-    @Override
-    public StackNetworkViewHolder onCreateViewHolder(ViewGroup viewGroup, int index){
-        View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.stack_network_card, viewGroup, false);
-
-        return new StackNetworkViewHolder(itemView);
-    }
-
-    @Override
-    public int getItemCount(){
-        return getStackNetworks().size();
-    }
-
-    @Override
-    public void onBindViewHolder(StackNetworkViewHolder stackNetworkViewHolder, int index){
-        StackNetwork stackNetwork = getStackNetworks().get(index);
+    public void runOnBindViewHolder(StackNetworkViewHolder stackNetworkViewHolder, int index){
+        StackNetwork stackNetwork = getData().get(index);
 
         stackNetworkViewHolder.getName().setText(stackNetwork.getName());
         stackNetworkViewHolder.getIcon().setBackgroundResource(stackNetwork.getIcon());
-
-        stackNetworkViewHolder.setupClickListener(index, this);
-    }
-
-    /* Getters */
-    public ArrayList<StackNetwork> getStackNetworks() {
-        return stackNetworks;
-    }
-
-    /* Setters */
-    public void setStackNetworks(ArrayList<StackNetwork> stackNetworks) {
-        this.stackNetworks = stackNetworks;
     }
 }

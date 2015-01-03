@@ -1,16 +1,2 @@
 <resources>
-<!--
-    <style name="AppTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimary">@color/primary</item>
-        <item name="actionBarStyle">@style/AppTheme.ActionBar</item>
-    </style>
-
-    <style name="AppTheme.ActionBar" parent="@style/Widget.AppCompat.ActionBar.Solid">
-        <item name="titleTextStyle">@style/AppTheme.ActionBar.Title</item>
-    </style>
-
-    <style name="AppTheme.ActionBar.Title" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
-        <item name="android:textColor">#FFFFFF</item>
-    </style>
--->
 </resources>

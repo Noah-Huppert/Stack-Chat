@@ -17,6 +17,7 @@ public class LoginButtonListener implements View.OnClickListener {
 
     @Override
     public void onClick(View view){
+        fragmentToActivityBus.setShowActionBarToggle(true);
         fragmentToActivityBus.switchFragment(MainActivity.FRAGMENT_SELECT_STACK_NETWORK);
     }
 }

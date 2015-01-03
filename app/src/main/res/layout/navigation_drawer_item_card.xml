@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/navigation_drawer_item_card_padding">
+
+    <ImageView
+        android:id="@+id/navigation_drawer_item_card_icon"
+        android:layout_width="@dimen/navigation_drawer_item_card_icon_width"
+        android:layout_height="@dimen/navigation_drawer_item_card_icon_height" />
+
+    <TextView
+        android:id="@+id/navigation_drawer_item_card_text"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/navigation_drawer_item_card_text_height"
+        android:layout_toRightOf="@+id/navigation_drawer_item_card_icon"
+        android:layout_toEndOf="@+id/navigation_drawer_item_card_icon"
+        android:layout_marginLeft="@dimen/navigation_drawer_item_card_text_margin_left"
+        android:textSize="@dimen/navigation_drawer_item_card_text_size"
+        android:gravity="center_vertical"/>
+
+</RelativeLayout>

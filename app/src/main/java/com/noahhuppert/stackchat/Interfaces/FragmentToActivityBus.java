@@ -15,4 +15,6 @@ public interface FragmentToActivityBus {
     public void switchFragment(String fragmentId);
 
     public ArrayList<StackNetwork> getStackNetworks();
+
+    public void setShowActionBarToggle(boolean show);
 }

@@ -4,11 +4,17 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/primary</item>
         <item name="colorAccent">@color/secondary</item>
+        <item name="drawerArrowStyle">@style/AppTheme.ActionBar.DrawerArrow</item>
     </style>
 
     <style name="AppTheme.ActionBar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
         <item name="android:background">@color/primary</item>
         <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="AppTheme.ActionBar.DrawerArrow" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">@android:color/white</item>
     </style>
 
 </resources>

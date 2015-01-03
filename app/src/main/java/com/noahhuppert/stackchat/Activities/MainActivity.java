@@ -2,9 +2,12 @@ package com.noahhuppert.stackchat.Activities;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
@@ -12,9 +15,11 @@ import android.widget.FrameLayout;
 import com.crashlytics.android.Crashlytics;
 import com.noahhuppert.stackchat.BuildConfig;
 import com.noahhuppert.stackchat.Fragments.LoginFragment;
+import com.noahhuppert.stackchat.Fragments.NavigationDrawerFragment;
 import com.noahhuppert.stackchat.Fragments.SelectStackNetworkFragment;
 import com.noahhuppert.stackchat.Fragments.StackNetworkRoomsFragment;
 import com.noahhuppert.stackchat.Interfaces.FragmentToActivityBus;
+import com.noahhuppert.stackchat.Listeners.NavigationDrawer.NavigationDrawerToggleListener;
 import com.noahhuppert.stackchat.Models.StackNetwork;
 import com.noahhuppert.stackchat.R;
 
@@ -30,6 +35,9 @@ public class MainActivity extends ActionBarActivity implements FragmentToActivit
 
     public ArrayList<StackNetwork> stackNetworks;
 
+    private DrawerLayout drawerLayout;
+    private NavigationDrawerToggleListener navigationDrawerListener;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,19 +49,31 @@ public class MainActivity extends ActionBarActivity implements FragmentToActivit
 
         setContentView(R.layout.activity_main);
 
-        FrameLayout mainFragment = (FrameLayout) findViewById(R.id.mainFragment);
-        switchFragment(FRAGMENT_LOGIN);
-
         //Set Toolbar as actionbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         if(toolbar != null) {
             setSupportActionBar(toolbar);
         }
 
+        //Setup navigation drawer
+        drawerLayout = (DrawerLayout) findViewById(R.id.activity_main_drawer_layout);
+
+        navigationDrawerListener = new NavigationDrawerToggleListener(this, drawerLayout, toolbar);
+        drawerLayout.setDrawerListener(navigationDrawerListener);
+
+        getFragmentManager().beginTransaction().replace(R.id.navigation_drawer_fragment, new NavigationDrawerFragment()).addToBackStack(null).commit();
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+
+        navigationDrawerListener.syncState();
+
         //Set data
         stackNetworks = new ArrayList<StackNetwork>();
         stackNetworks.add(new StackNetwork("Stack Exchange", "http://chat.stackexchange.com/", R.drawable.se_icon));
         stackNetworks.add(new StackNetwork("Stack Overflow", "http://chat.stackoverflow.com/", R.drawable.so_icon));
+
+        switchFragment(FRAGMENT_LOGIN);
     }
 
 
@@ -98,7 +118,7 @@ public class MainActivity extends ActionBarActivity implements FragmentToActivit
                 fragment.setArguments(data);
             }
 
-            fragmentTransaction.replace(R.id.mainFragment, fragment);
+            fragmentTransaction.replace(R.id.main_fragment, fragment);
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
         }
@@ -112,5 +132,18 @@ public class MainActivity extends ActionBarActivity implements FragmentToActivit
     @Override
     public ArrayList<StackNetwork> getStackNetworks(){
         return stackNetworks;
+    }
+
+    @Override
+    public void setShowActionBarToggle(boolean show) {
+        getSupportActionBar().setDisplayHomeAsUpEnabled(show);
+        getSupportActionBar().setHomeButtonEnabled(show);
+
+        if(show){
+            drawerLayout.setDrawerLockMode(0, Gravity.START);
+            navigationDrawerListener.syncState();
+        } else{
+            drawerLayout.setDrawerLockMode(1, Gravity.START);
+        }
     }
 }

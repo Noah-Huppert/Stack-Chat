@@ -37,7 +37,7 @@ public class SelectStackNetworkFragment extends BaseFragment {
         RecyclerView networksList = (RecyclerView) rootView.findViewById(R.id.select_stack_network_fragment_list);
 
         StackNetworkListAdapter stackNetworkListAdapter = new StackNetworkListAdapter(fragmentToActivityBus.getStackNetworks());
-        stackNetworkListAdapter.addOnClickListener(new StackNetworkCardListener(fragmentToActivityBus.getStackNetworks(), fragmentToActivityBus));
+        stackNetworkListAdapter.setOnClickListener(new StackNetworkCardListener(fragmentToActivityBus.getStackNetworks(), fragmentToActivityBus));
 
         networksList.setHasFixedSize(true);
         networksList.setLayoutManager(new LinearLayoutManager(getActivity()));

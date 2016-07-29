@@ -1,3 +1,4 @@
+Project Status: Abandoned (Functionality planned to be baked into another app)
 Stack-Chat
 ==========
 
